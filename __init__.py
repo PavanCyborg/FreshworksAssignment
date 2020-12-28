@@ -75,7 +75,7 @@ class dataStore:
                 except : raise timeToLiveValueError
                 
                 if type(self.__timeToLive) is not int :pass
-                self.__timeStamp = int(time())                                       # getting time of creation to manipulate Time to live property
+                self.__timeStamp = int(time())                                       
             else : self.__timeStamp = None
             
             with open(self.__file_path,'r+') as self.__dataStoreFptr :                                  # adding key, value pair to dataStore                                     
@@ -97,8 +97,7 @@ class dataStore:
 
 
 
-    # Reads the file, validates the key requested from client and 
-    # returns the response from DataStore, if Time-To-Live condition satisfied 
+    # Reads the file, validates the key requested .
     def read(self,key):
         with self.__lock:  
             self.__file_size = os.stat(self.__file_path).st_size                
@@ -118,7 +117,7 @@ class dataStore:
                     
            
                 
-    # Deletes or removes JSONObject for given Key,if Valid key and Time-To-Live condition satisfied
+    # Deletes or removes JSONObject for given Key.
     def delete(self,key):
         with self.__lock: 
             self.__file_size = os.stat(self.__file_path).st_size  
